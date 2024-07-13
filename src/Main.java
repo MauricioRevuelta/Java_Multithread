@@ -39,10 +39,27 @@ public class Main {
         Thread thread2 = new Thread(new SimpleClass());
         Thread thread3 = new Thread(new SimpleClass());
 
+        // Starting multiple threads
         thread1.start();
         thread2.start();
         thread3.start();
 
+
+        // Create an infinite thread
+        Thread infThread = new Thread(new InfiniteThread());
+
+        // Start the infinite thread
+        infThread.start();
+
+        // Sleep the infinite thread
+        try {
+            Thread.sleep(5000); // Sleep for 5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Interrupt the infinite thread
+        infThread.interrupt();
 
     }
 }
